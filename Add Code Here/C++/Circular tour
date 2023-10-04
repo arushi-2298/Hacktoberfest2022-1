@@ -1,0 +1,19 @@
+int tour(petrolPump p[],int n)
+    {
+       int s=0;
+       int fuel=0,shortage=0;
+       for(int i=0;i<n;i++)
+       {
+           fuel+=p[i].petrol-p[i].distance;
+           if(fuel<0)
+           {
+               s=i+1;
+               shortage+=fuel;
+               fuel=0;
+           }
+       }
+       if(fuel+shortage>=0)
+       return s;
+       
+       return -1;
+    }
